@@ -6,7 +6,7 @@ body {
     margin: 0;
     min-height: 100vh;
     background-color: #E1D4C9;
-    font-family: sans-serif;
+    font-family: Inter, sans-serif;
 }
 
 .page-wrapper {
@@ -121,10 +121,6 @@ body {
     transition: color 0.25s ease;
 }
 
-a.nav-menu-btn {
-    cursor: pointer;
-}
-
 .nav-menu-btn:hover {
     color: #B0907A;
 }
@@ -140,27 +136,14 @@ a.nav-menu-btn {
 
 /* hero */
 
-.enjoy-block {
-    width: 100%;
-    margin-bottom: 0;
-}
-
-.enjoy-inner {
-    max-width: 1440px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 40px;
-    padding-right: 40px;
-    box-sizing: border-box;
-}
-
 .enjoy-inner .hero-content {
     max-width: 530px;
     padding: 80px 0 80px 0;
 }
 
-/* hero */
 .enjoy-block {
+    width: 100%;
+    margin-bottom: 0;
     background-color: #E1D4C9;
     background-image: url("images/coffee_big.jpg");
     background-size: cover;
@@ -205,10 +188,6 @@ a.nav-menu-btn {
     transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
 }
 
-a.btn-menu {
-    cursor: pointer;
-}
-
 .btn-menu:hover {
     background-color: #B0907A;
     color: #fff;
@@ -221,7 +200,7 @@ a.btn-menu {
 
 /* ===== Favourites Coffee block ===== */
 .favorites-block {
-    padding: 80px 0;
+    padding: 80px 0 120px;
 }
 
 .favorites-block h2 {
@@ -267,11 +246,6 @@ a.btn-menu {
     flex-direction: column;
     align-items: center;
     text-align: center;
-}
-
-.product-card:hover {
-    transform: none;
-    box-shadow: none;
 }
 
 .product-card h3 {
@@ -345,10 +319,6 @@ a.btn-menu {
     background-color: #665F55;
 }
 
-.favorites-block {
-    padding-bottom: 120px;
-}
-
 /* ===== About block (Flexbox for images) ===== */
 .about-block {
     padding: 80px 0;
@@ -356,7 +326,6 @@ a.btn-menu {
 }
 
 .about-block h2 {
-    
     font-size: 2.25rem;
     color: #403F3D;
     margin: 0 0 40px 0;
@@ -374,10 +343,11 @@ a.btn-menu {
 
 .about-text p {
     margin: 0;
-    font-size: clamp(1.5rem, 2.2vw, 2.35rem);
-    line-height: 1.3;
+    font-size: 60px;
+    line-height: 1.25;
     color: #403F3D;
     font-weight: 600;
+    letter-spacing: 0;
 }
 
 .about-text p em {
@@ -385,29 +355,61 @@ a.btn-menu {
     color: #B0907A;
 }
 
+/* Контейнер для двух колонок */
 .about-images.about-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex; /* Переключаемся на flex для управления колонками */
     gap: 40px;
     max-width: 1360px;
     width: 100%;
+    margin-top: 40px;
 }
 
+/* Общие стили для колонок */
+.column-1, .column-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    flex: 1; /* Колонки делят пространство 50/50 */
+}
+
+/* Стили для картинок */
 .about-images img {
     width: 100%;
     border-radius: 20px;
     object-fit: cover;
-    background-color: #C4B5A5;
+    display: block;
 }
 
-.about-images.about-grid img:nth-child(1),
-.about-images.about-grid img:nth-child(4) {
-    height: clamp(320px, 38vw, 590px);
-}
+/* Левая колонка: длинная сверху, короткая снизу */
+.column-1 img:nth-child(1) { height: 590px; }
+.column-1 img:nth-child(2) { height: 430px; }
 
-.about-images.about-grid img:nth-child(2),
-.about-images.about-grid img:nth-child(3) {
-    height: clamp(260px, 28vw, 430px);
+/* Правая колонка: короткая сверху, длинная снизу (эффект смещения) */
+.column-2 {
+    margin-top: 40px; /* Смещение всей колонки вниз, если нужно как на фото */
+}
+.column-2 img:nth-child(1) { height: 430px; }
+.column-2 img:nth-child(2) { height: 590px; }
+
+/* Адаптив для мобильных устройств */
+@media (max-width: 768px) {
+    .about-images.about-grid {
+        gap: 24px;
+    }
+    
+    .column-1, .column-2 {
+        gap: 24px;
+    }
+
+    .column-2 {
+        margin-top: 20px;
+    }
+
+    .column-1 img:nth-child(1), 
+    .column-2 img:nth-child(2) { height: 360px; }
+
+    .column-1 img:nth-child(2), 
+    .column-2 img:nth-child(1) { height: 260px; }
 }
 
 /* ===== Mobile App block ===== */
