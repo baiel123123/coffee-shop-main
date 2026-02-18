@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resource Coffee House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <script src="script.js"></script>
     <div class="page-wrapper">
         <header class="site-header">
             <nav class="navbar container">
@@ -43,28 +47,50 @@
                 <div class="container">
                     <h2>Choose your <em>favorite</em> coffee</h2>
                     <div class="slider-container">
-                        <button type="button" class="arrow arrow-prev" aria-label="Previous">←</button>
-                        <div class="cards-wrap">
-                            <article class="product-card">
-                                <img src="images/drink.png" alt="S'mores Frappuccino" class="product-card-img" width="300" height="300">
-                                <h3>S'mores Frappuccino</h3>
-                                <p>This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.</p>
-                                <span class="price">$5.50</span>
-                            </article>
-                            <article class="product-card">
-                                <img src="images/coffee%20(1).png" alt="Caramel Macchiato" class="product-card-img" width="300" height="300">
-                                <h3>Caramel Macchiato</h3>
-                                <p>Freshly steamed milk with vanilla-flavored syrup, espresso and caramel drizzle.</p>
-                                <span class="price">$5.00</span>
-                            </article>
-                            <article class="product-card">
-                                <img src="images/coffee%20(2).png" alt="Iced Caffè Mocha" class="product-card-img" width="300" height="300">
-                                <h3>Iced Caffè Mocha</h3>
-                                <p>Espresso with bittersweet mocha sauce and milk over ice. Topped with sweetened whipped cream.</p>
-                                <span class="price">$5.25</span>
-                            </article>
+                        <button type="button" class="arrow arrow-prev" aria-label="Previous">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                        </button>
+                        
+                        <div class="slider-window">
+                            <div class="cards-wrap">
+                                <article class="product-card">
+                                    <img src="images/drink.png" alt="S'mores Frappuccino" class="product-card-img">
+                                    <h3>S'mores Frappuccino</h3>
+                                    <p>This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.</p>
+                                    <span class="price">$5.50</span>
+                                </article>
+                                
+                                <article class="product-card">
+                                    <img src="images/coffee%20(1).png" alt="Caramel Macchiato" class="product-card-img">
+                                    <h3>Caramel Macchiato</h3>
+                                    <p>Freshly steamed milk with vanilla-flavored syrup, espresso and caramel drizzle.</p>
+                                    <span class="price">$5.00</span>
+                                </article>
+                                
+                                <article class="product-card">
+                                    <img src="images/coffee%20(2).png" alt="Iced Caffè Mocha" class="product-card-img">
+                                    <h3>Iced Caffè Mocha</h3>
+                                    <p>Espresso with bittersweet mocha sauce and milk over ice. Topped with sweetened whipped cream.</p>
+                                    <span class="price">$5.25</span>
+                                </article>
+                            </div>
                         </div>
-                        <button type="button" class="arrow arrow-next" aria-label="Next">→</button>
+
+                        <div class="slider-pagination">
+                            <div class="pagination-line active"></div>
+                            <div class="pagination-line"></div>
+                            <div class="pagination-line"></div>
+                        </div>
+
+                        <button type="button" class="arrow arrow-next" aria-label="Next">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </section>
@@ -76,10 +102,14 @@
                             <p>Resource is <em>the perfect and cozy place</em> where you can enjoy a variety of hot beverages, relax, catch up with friends, or get some work done.</p>
                         </div>
                         <div class="about-images about-grid">
-                            <img src="images/about-1%20(1).jpg" alt="Enjoying coffee at Resource" width="300" height="300">
-                            <img src="images/about-1%20(2).jpg" alt="Coffee and work" width="300" height="300">
-                            <img src="images/about-1%20(3).jpg" alt="Coffee cup" width="300" height="300">
-                            <img src="images/about-1%20(4).jpg" alt="Coffee together" width="300" height="300">
+                            <div class="column-1">
+                                <img src="images/about-1%20(4).jpg" alt="Coffee together">
+                                <img src="images/about-1%20(3).jpg" alt="Coffee cup">
+                            </div>
+                            <div class="column-2">  
+                                <img src="images/about-1%20(2).jpg" alt="Coffee and work">
+                                <img src="images/about-1%20(1).jpg" alt="Enjoying coffee at Resource">
+                            </div>
                         </div>
                     </div>
                 </div>

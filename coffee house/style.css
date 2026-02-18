@@ -240,53 +240,43 @@ a.btn-menu {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 24px;
+    gap: 200px; 
+    position: relative;
+    max-width: 1360px;
+    margin: 0 auto;
 }
 
-.arrow {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: 2px solid #403F3D;
-    background: #E1D4C9;
-    color: #403F3D;
-    font-size: 1.25rem;
-    cursor: pointer;
-    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
-}
-
-.arrow:hover {
-    background-color: #403F3D;
-    color: #E1D4C9;
-    border-color: #403F3D;
+.slider-window {
+    overflow: hidden;
+    width: 480px;
 }
 
 .cards-wrap {
     display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-    justify-content: center;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
 }
 
 .product-card {
-    max-width: 320px;
-    padding: 32px;
-    background: #fff;
-    border-radius: 20px;
-    box-sizing: border-box;
-    overflow: hidden;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(64, 63, 61, 0.12);
+    transform: none;
+    box-shadow: none;
 }
 
 .product-card h3 {
     margin: 0 0 12px 0;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     color: #403F3D;
 }
 
@@ -295,11 +285,68 @@ a.btn-menu {
     font-size: 0.95rem;
     line-height: 1.5;
     color: #403F3D;
+    max-width: 380px;
 }
 
 .product-card .price {
+    font-size: 1.5rem;
     font-weight: 600;
     color: #403F3D;
+}
+
+.product-card-img {
+    width: auto;
+    max-width: 100%;
+    height: 480px;
+    object-fit: contain;
+    background-color: transparent;
+    margin: 0 0 24px 0;
+    border-radius: 0;
+}
+
+.arrow {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid #403F3D;
+    background: #E1D4C9;
+    color: #403F3D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.arrow:hover {
+    background-color: #403F3D;
+    color: #E1D4C9;
+}
+
+.slider-pagination {
+    display: flex;
+    gap: 12px;
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pagination-line {
+    width: 40px;
+    height: 4px;
+    background-color: #C4B5A5;
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-line.active {
+    background-color: #665F55;
+}
+
+.favorites-block {
+    padding-bottom: 120px;
 }
 
 /* ===== About block (Flexbox for images) ===== */
@@ -309,6 +356,7 @@ a.btn-menu {
 }
 
 .about-block h2 {
+    
     font-size: 2.25rem;
     color: #403F3D;
     margin: 0 0 40px 0;
@@ -321,14 +369,15 @@ a.btn-menu {
 }
 
 .about-text {
-    max-width: 800px;
+    max-width: 100%;
 }
 
 .about-text p {
     margin: 0;
-    font-size: 1.25rem;
-    line-height: 1.6;
+    font-size: clamp(1.5rem, 2.2vw, 2.35rem);
+    line-height: 1.3;
     color: #403F3D;
+    font-weight: 600;
 }
 
 .about-text p em {
@@ -339,17 +388,26 @@ a.btn-menu {
 .about-images.about-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    max-width: 800px;
+    gap: 40px;
+    max-width: 1360px;
+    width: 100%;
 }
 
 .about-images img {
     width: 100%;
-    height: 100%;
-    min-height: 280px;
     border-radius: 20px;
     object-fit: cover;
     background-color: #C4B5A5;
+}
+
+.about-images.about-grid img:nth-child(1),
+.about-images.about-grid img:nth-child(4) {
+    height: clamp(320px, 38vw, 590px);
+}
+
+.about-images.about-grid img:nth-child(2),
+.about-images.about-grid img:nth-child(3) {
+    height: clamp(260px, 28vw, 430px);
 }
 
 /* ===== Mobile App block ===== */
@@ -534,15 +592,6 @@ a.btn-menu {
     font-size: 1.1rem;
 }
 
-/* Product card image (favourites) */
-.product-card-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 20px 20px 0 0;
-    margin: -32px -32px 16px -32px;
-    background-color: #C4B5A5;
-}
 
 /* ===== Menu page ===== */
 .menu-block {
@@ -627,7 +676,6 @@ a.btn-menu {
     font-weight: 600;
 }
 
-/* Smooth hover: only the element changes, no layout shift */
 .nav-links a,
 .logo,
 .nav-menu-btn,
